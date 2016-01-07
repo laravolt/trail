@@ -1,6 +1,6 @@
 <?php namespace Laravolt\Trail;
 
-use Illuminate\Auth\Guard;
+use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Database\Eloquent\Model;
 use Laravolt\Trail\Contracts\Listener as ListenerContract;
 use Laravolt\Trail\Models\Revision;
@@ -10,7 +10,7 @@ class Listener implements ListenerContract
 {
     protected $auth;
 
-    public function __construct(Guard $auth)
+    public function __construct(StatefulGuard $auth)
     {
         $this->auth = $auth;
     }
