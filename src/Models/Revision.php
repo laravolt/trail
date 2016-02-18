@@ -71,7 +71,8 @@ class Revision extends Model
                 $newRevision = new $this->revisionable;
                 $newRevision->setRawAttributes($this->new);
 
-                $diff[$field]['old'] = '#' . $value['old'];
+                $diff[$field]['old'] = ($value['old'])? '#' . $value['old'] : '';
+
                 if ($oldRelated = $oldRevision->{$relation}) {
                     $diff[$field]['old'] = $oldRevision->{$relation};
                 }
